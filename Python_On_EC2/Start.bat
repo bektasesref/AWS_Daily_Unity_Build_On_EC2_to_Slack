@@ -1,0 +1,1 @@
+C:\\Users\\Administrator\\PycharmProjects\\Unity_SCM_Build\\.venv\\Scripts\\python.exe C:\\Users\\Administrator\\PycharmProjects\\Unity_SCM_Build\\main.py
