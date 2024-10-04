@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>method</key>
+    <string>ad-hoc</string> <!-- For Ad-Hoc distribution -->
+    <key>teamID</key>
+    <string>S[corrupted]</string> <!-- Replace with your Apple Developer Team ID -->
+    <key>signingStyle</key>
+    <string>automatic</string> <!-- Let Xcode manage provisioning profiles automatically -->
+    <key>destination</key>
+    <string>export</string> <!-- Export destination -->
+    <key>compileBitcode</key>
+    <false/> <!-- Set to true if you want to include Bitcode -->
+    <key>thinning</key>
+    <string>&lt;none&gt;</string> <!-- No app thinning -->
+</dict>
+</plist>

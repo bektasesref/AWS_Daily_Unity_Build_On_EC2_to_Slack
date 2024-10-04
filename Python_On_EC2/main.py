@@ -1,18 +1,19 @@
+import ftp_uploader
+import properties
 import scm
-import unity_builder
 import slack_message_sender
-import os
-
-
-def close_os():
-    print("Closing OS")
-    os.system("shutdown -s -t 15")
+import unity_builder
+import utils
+import xcode_builder
 
 
 if __name__ == "__main__":
     scm.sync_scm()
     if unity_builder.build_project() == "success":
-        slack_message_sender.upload_file("Manual triggered build")
-        close_os()
-    else:
-        close_os()
+        if properties.buildTarget == "android":
+            slack_message_sender.upload_file("Manual triggered build")
+        else:
+            if xcode_builder.build_project() == "success":
+                if ftp_uploader.upload() == "success":
+                    utils.delete_build_folder()
+    utils.close_os()

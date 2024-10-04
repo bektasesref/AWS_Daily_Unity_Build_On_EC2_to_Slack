@@ -3,7 +3,7 @@ import properties
 
 
 def build_project():
-    print("Build in progress")
+    print("Unity: Starting build")
     log_path = "build.log"
 
     build_command = [
@@ -12,17 +12,15 @@ def build_project():
         "-batchmode",
         "-projectpath", properties.projectPath,
         "-logFile", log_path,
-        "buildTarget", "Android",
+        "-buildTarget", properties.buildTarget,
         "-executeMethod", properties.unity_script_and_method_name,
     ]
 
     result = subprocess.run(build_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
     if result.returncode == 0:
-        print("Build finished successfully.")
-        print(result.stdout)
+        print("Unity: Build finished successfully")
         return "success"
     else:
-        print("Build failed.")
-        print(result.stderr)
+        print(f"Unity: Build failed: {result.stderr}")
         return "fail"
